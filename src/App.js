@@ -1,8 +1,16 @@
+import { BrowserRouter as Router } from "react-router-dom";
+import Footer from "./components/layout/Footer";
+import Navbar from "./components/layout/Navbar";
+
 function App() {
   return (
-    <div className="bg-purple-500">
-      <h1 className="text-xl">Hello World</h1>
-    </div>
+    <Router>
+      <div className="flex flex-col justify-between h-screen">
+        <Navbar title="Github finder" />
+        <main>Content</main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
