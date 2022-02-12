@@ -30,10 +30,15 @@ export const GithubProvider = ({ children }) => {
 
     console.log(response);
 
-    const { item } = await response.json();
-    console.log(item);
+    const { items } = await response.json();
+    console.log(items);
 
-    dispatch({ type: "GET_USERS", payload: item });
+    dispatch({ type: "GET_USERS", payload: items });
+  };
+
+  //clear users
+  const clearUsers = () => {
+    dispatch({ type: "CLEAR_USERS" });
   };
 
   //SET LOADING
@@ -49,6 +54,7 @@ export const GithubProvider = ({ children }) => {
         users: state.users,
         loading: state.loading,
         searchUsers,
+        clearUsers,
       }}
     >
       {children}
